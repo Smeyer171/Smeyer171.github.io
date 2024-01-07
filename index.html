@@ -117,18 +117,18 @@
         <h1>Interaktiver Wegweiser</h1>
     </header>
 
-    <main>
+    <main id="app">
         <div class="areas">
-            <div class="area" onclick="loadDetails('bereich1')">Bereich 1</div>
-            <div class="area" onclick="loadDetails('bereich2')">Bereich 2</div>
-            <div class="area" onclick="loadDetails('bereich3')">Bereich 3</div>
+            <div v-for="area in areas" :key="area.id" class="area" @click="loadDetails(area.id)">
+                {{ area.name }}
+            </div>
         </div>
 
-        <div class="overlay" id="overlay">
-            <div class="modal">
-                <span class="modal-close" onclick="closeModal()">&times;</span>
-                <h2 id="detailsTitle"></h2>
-                <p id="detailsContent"></p>
+        <div class="overlay" :class="{ active: showModal }" @click="closeModal">
+            <div class="modal" @click.stop>
+                <span class="modal-close" @click="closeModal">&times;</span>
+                <h2 id="detailsTitle">{{ selectedArea.name }}</h2>
+                <p id="detailsContent">{{ selectedArea.details }}</p>
             </div>
         </div>
     </main>
@@ -137,33 +137,45 @@
         <p>&copy; 2024 Interaktiver Wegweiser</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
-        async function loadDetails(area) {
-            try {
-                const response = await fetch(`https://example.com/api/${area}`);
-                const data = await response.json();
+        new Vue({
+            el: '#app',
+            data: {
+                areas: [
+                    { id: 'bereich1', name: 'Bereich 1' },
+                    { id: 'bereich2', name: 'Bereich 2' },
+                    { id: 'bereich3', name: 'Bereich 3' }
+                ],
+                selectedArea: {},
+                showModal: false
+            },
+            methods: {
+                async loadDetails(areaId) {
+                    try {
+                        // Hier könntest du eine API-Anfrage einfügen
+                        // und die Ergebnisse in selectedArea speichern
+                        this.selectedArea = {
+                            name: areaId,
+                            details: `Details für ${areaId}. Hier könnten Informationen von einer API kommen.`
+                        };
 
-                const detailsTitle = document.getElementById('detailsTitle');
-                const detailsContent = document.getElementById('detailsContent');
-                
-                detailsTitle.textContent = data.title;
-                detailsContent.innerHTML = data.content;
+                        this.showModal = true;
 
-                document.getElementById('overlay').classList.add('active');
+                        setTimeout(() => {
+                            document.getElementById('details').style.opacity = '1';
+                        }, 50);
 
-                setTimeout(() => {
-                    document.getElementById('details').style.opacity = '1';
-                }, 50);
-
-            } catch (error) {
-                console.error('Fehler beim Laden der Details:', error);
+                    } catch (error) {
+                        console.error('Fehler beim Laden der Details:', error);
+                    }
+                },
+                closeModal() {
+                    this.showModal = false;
+                    document.getElementById('details').style.opacity = '0';
+                }
             }
-        }
-
-        function closeModal() {
-            document.getElementById('overlay').classList.remove('active');
-            document.getElementById('details').style.opacity = '0';
-        }
+        });
     </script>
 
 </body>
