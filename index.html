@@ -16,6 +16,10 @@
             color: blue;
         }
 
+        .blue-text {
+            color: blue;
+        }
+
         #main-content {
             margin-top: 20px;
         }
@@ -55,7 +59,7 @@
     <h1>Wegweiser der Htw Saar</h1>
 
     <div id="main-content">
-        <p>Herzlich Willkommen liebe Studenten und Besucher der Htw Saar. Durch die Erstellung dieser Website wollen wir Ihnen dabei helfen, die Gebäude und Standorte besser zu finden. Unsere Website beinhaltet grafische Übersichten, Gebäudeinformationen sowie eine detaillierte Navigation zu Mensa und Druckerräumen.</p>
+        <p class="blue-text">Herzlich Willkommen liebe Studenten und Besucher der Htw Saar. Durch die Erstellung dieser Website wollen wir Ihnen dabei helfen, die Gebäude und Standorte besser zu finden. Unsere Website beinhaltet grafische Übersichten, Gebäudeinformationen sowie eine detaillierte Navigation zu Mensa und Druckerräumen.</p>
     </div>
 
     <div id="menu" onclick="toggleMenu()"> &#8226; &#8226; &#8226;</div>
@@ -67,11 +71,21 @@
     <script>
         function toggleMenu() {
             document.getElementById("overlay").style.display = "flex";
-            document.getElementById("overlay-content").innerHTML = "<h2>1. Wichtige Informationen</h2><button onclick='openWindow(1)'>Öffnen</button><br><h2>2. Mensa</h2><button onclick='openWindow(2)'>Öffnen</button><br><h2>3. Druckerräume</h2><button onclick='openWindow(3)'>Öffnen</button><br><h2>4. Gebäude</h2><button onclick='openWindow(4)'>Öffnen</button><br><button onclick='closeOverlay()'>Schließen</button>";
+            document.getElementById("overlay-content").innerHTML = "<h2 class='blue-text'>1. Wichtige Informationen</h2><button onclick='openWindow(1)'>Öffnen</button><br><h2 class='blue-text'>2. Mensa</h2><button onclick='openWindow(2)'>Öffnen</button><br><h2 class='blue-text'>3. Druckerräume</h2><button onclick='openWindow(3)'>Öffnen</button><br><h2 class='blue-text'>4. Gebäude</h2><button onclick='openWindow(4)'>Öffnen</button><br><button onclick='closeOverlay()'>Schließen</button>";
         }
 
         function openWindow(number) {
-            document.getElementById("overlay-content").innerHTML = "<h2>Fenster " + number + "</h2><textarea rows='4' cols='50' placeholder='Schreiben Sie hier...'></textarea><button onclick='closeOverlay()'>Schließen</button>";
+            var content = "<h2 class='blue-text'>Fenster " + number + "</h2>";
+
+            if (number === 1) {
+                content += "<p>Schwarz wie die Nacht.</p>";
+            } else {
+                content += "<img src='bild.jpg' alt='Bild'><p class='blue-text'>Halloooooooooo</p>";
+            }
+
+            content += "<button onclick='closeOverlay()'>Schließen</button>";
+
+            document.getElementById("overlay-content").innerHTML = content;
         }
 
         function closeOverlay() {
@@ -83,3 +97,4 @@
 </body>
 
 </html>
+
