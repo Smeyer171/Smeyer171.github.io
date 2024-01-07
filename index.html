@@ -114,7 +114,7 @@
 <body>
 
     <header>
-        <h1>Interaktiver Wegweiser</h1>
+        <h1>Wegweiser der HtW-Saar</h1>
     </header>
 
     <main id="app">
@@ -135,7 +135,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Interaktiver Wegweiser</p>
+        <p>&copy; 2024 Wegweiser der HTW_Saar</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -150,65 +150,7 @@
                 async loadDetails(areaId) {
                     try {
                         // Hier könntest du eine API-Anfrage einfügen
-                        // und die Ergebnisse in den Vuex Store speichern
-                        this.$store.commit('setSelectedArea', {
-                            name: areaId,
-                            details: `Details für ${areaId}. Hier könnten Informationen von einer API kommen.`
-                        });
-
-                        this.$store.commit('setShowModal', true);
-
-                        setTimeout(() => {
-                            document.getElementById('details').style.opacity = '1';
-                        }, 50);
-
-                    } catch (error) {
-                        console.error('Fehler beim Laden der Details:', error);
-                    }
-                }
-            }
-        };
-
-        const routes = [
-            { path: '/', component: Home },
-            { path: '/area/:id', component: Area }
-        ];
-
-        const router = new VueRouter({
-            routes
-        });
-
-        const store = new Vuex.Store({
-            state: {
-                areas: [
-                    { id: 'bereich1', name: 'Bereich 1' },
-                    { id: 'bereich2', name: 'Bereich 2' },
-                    { id: 'bereich3', name: 'Bereich 3' }
-                ],
-                selectedArea: {},
-                showModal: false
-            },
-            mutations: {
-                setSelectedArea(state, area) {
-                    state.selectedArea = area;
-                },
-                setShowModal(state, value) {
-                    state.showModal = value;
-                }
-            }
-        });
-
-        new Vue({
-            el: '#app',
-            router,
-            store
-        });
-    </script>
-
-</body>
-</html>
-
-<!-- ... (Bereits existierender Code) ... -->
+                        <!-- ... (Bereits existierender Code) ... -->
 
 <script>
     const Home = {
@@ -326,6 +268,64 @@
 </script>
 
 <!-- ... (Bereits existierender Code) ... -->
+
+                        // und die Ergebnisse in den Vuex Store speichern
+                        this.$store.commit('setSelectedArea', {
+                            name: areaId,
+                            details: `Details für ${areaId}. Hier könnten Informationen von einer API kommen.`
+                        });
+
+                        this.$store.commit('setShowModal', true);
+
+                        setTimeout(() => {
+                            document.getElementById('details').style.opacity = '1';
+                        }, 50);
+
+                    } catch (error) {
+                        console.error('Fehler beim Laden der Details:', error);
+                    }
+                }
+            }
+        };
+
+        const routes = [
+            { path: '/', component: Home },
+            { path: '/area/:id', component: Area }
+        ];
+
+        const router = new VueRouter({
+            routes
+        });
+
+        const store = new Vuex.Store({
+            state: {
+                areas: [
+                    { id: 'bereich1', name: 'Bereich 1' },
+                    { id: 'bereich2', name: 'Bereich 2' },
+                    { id: 'bereich3', name: 'Bereich 3' }
+                ],
+                selectedArea: {},
+                showModal: false
+            },
+            mutations: {
+                setSelectedArea(state, area) {
+                    state.selectedArea = area;
+                },
+                setShowModal(state, value) {
+                    state.showModal = value;
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            router,
+            store
+        });
+    </script>
+
+</body>
+</html>
 
 
 
