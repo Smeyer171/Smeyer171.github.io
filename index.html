@@ -23,6 +23,42 @@
             background-color: #f2f2f2;
             padding: 10px;
         }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropbtn {
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+        }
         section {
             margin: 20px 0;
             padding: 20px;
@@ -35,6 +71,20 @@
             background-color: #3498db;
             color: #fff;
         }
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+        }
+        .mySlides {
+            display: none;
+        }
+        img {
+            width: 100%;
+        }
+        #map {
+            height: 400px;
+        }
     </style>
 </head>
 <body>
@@ -43,9 +93,14 @@
     </header>
     
     <nav>
-        <a href="#gebaeude">Gebäude</a>
-        <a href="#veranstaltungen">Veranstaltungen</a>
-        <a href="#kontakt">Kontakt</a>
+        <div class="dropdown">
+            <button class="dropbtn">Entdecken</button>
+            <div class="dropdown-content">
+                <a href="#gebaeude">Gebäude</a>
+                <a href="#veranstaltungen">Veranstaltungen</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </div>
     </nav>
     
     <section id="gebaeude">
@@ -66,13 +121,42 @@
         <!-- Füge hier Kontaktinformationen ein -->
     </section>
     
+    <section>
+        <h2>Bildergalerie</h2>
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img src="bild1.jpg" alt="Bild 1">
+            </div>
+            <div class="mySlides">
+                <img src="bild2.jpg" alt="Bild 2">
+            </div>
+            <div class="mySlides">
+                <img src="bild3.jpg" alt="Bild 3">
+            </div>
+            <!-- Füge hier weitere Bilder hinzu -->
+        </div>
+    </section>
+
+    <section>
+        <h2>Interaktive Karte</h2>
+        <div id="map"></div>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+            var map = L.map('map').setView([49.2444, 7.0419], 15);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            L.marker([49.2444, 7.0419]).addTo(map)
+                .bindPopup('HTW Saar Hauptgebäude')
+                .openPopup();
+        </script>
+    </section>
+    
     <footer>
         <p>&copy; 2024 HTW Saar Wegweiser</p>
     </footer>
-
-    <script>
-        // Hier kannst du JavaScript hinzufügen, um die Website interaktiver zu gestalten
-        // Zum Beispiel: Dropdowns, Slideshow, interaktive Karten usw.
-    </script>
 </body>
 </html>
+
