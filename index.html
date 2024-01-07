@@ -20,6 +20,13 @@
             margin-top: 20px;
         }
 
+        #menu {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+
         #overlay {
             display: none;
             position: fixed;
@@ -38,6 +45,7 @@
             background-color: white;
             padding: 20px;
             border-radius: 10px;
+            text-align: left;
         }
     </style>
 </head>
@@ -50,11 +58,7 @@
         <p>Herzlich Willkommen liebe Studenten und Besucher der Htw Saar. Durch die Erstellung dieser Website wollen wir Ihnen dabei helfen, die Gebäude und Standorte besser zu finden. Unsere Website beinhaltet grafische Übersichten, Gebäudeinformationen sowie eine detaillierte Navigation zu Mensa und Druckerräumen.</p>
     </div>
 
-    <div id="menu" onclick="toggleMenu()">
-        <span>&#8226;</span>
-        <span>&#8226;</span>
-        <span>&#8226;</span>
-    </div>
+    <div id="menu" onclick="toggleMenu()"> &#8226; &#8226; &#8226;</div>
 
     <div id="overlay">
         <div id="overlay-content"></div>
@@ -63,16 +67,17 @@
     <script>
         function toggleMenu() {
             document.getElementById("overlay").style.display = "flex";
-            document.getElementById("overlay-content").innerHTML = "<p>1. Informationen</p><p>2. Mensa</p><p>3. Druckerräume</p><p>4. Gebäude</p>";
+            document.getElementById("overlay-content").innerHTML = "<h2>1. Wichtige Informationen</h2><textarea rows='4' cols='50' placeholder='Schreiben Sie hier...'></textarea><button onclick='closeOverlay()'>Schließen</button>";
         }
 
-        document.getElementById("overlay").addEventListener("click", function () {
+        function closeOverlay() {
             document.getElementById("overlay").style.display = "none";
             document.getElementById("overlay-content").innerHTML = "";
-        });
+        }
     </script>
 
 </body>
 
 </html>
+
 
