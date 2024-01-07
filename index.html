@@ -1,102 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTW Saar - Anfahrt und Lageplan</title>
-    <style>
-       /* Reset CSS */
-body, h1, h2, p, img {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-}
-
-header {
-    background-color: #3498db;
-    color: #fff;
-    padding: 1em;
-    text-align: center;
-}
-
-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1, h2 {
-    color: #3498db;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 600px) {
-    section {
-        padding: 10px;
-    }
-} 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        #map {
-            width: 100%;
-            height: 400px;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-
-<h1>Anfahrt zur HTW Saar</h1>
-
-<p>Hier findest du die Anfahrtsinformationen zur HTW Saar in Saarbrücken:</p>
-
-<!-- Füge hier deine Anfahrtsinformationen ein -->
-<p>Adresse: Musterstraße 123, 66123 Saarbrücken</p>
-<p>Telefon: +49 681 123456</p>
-<p>Email: info@htw-saar.de</p>
-
-<h2>Projektmanagement</h2>
-
-<div id="map">
-    Studenten:Simon Meyer,Kai Lachowitz,Janis Bickert.
-
-    
-
-    
-    <!-- Hier kannst du ein Karten-Widget, Bild des Lageplans oder eine Kartenintegration einfügen -->
-    <!-- Beispiel für Google Maps Embed API: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.8651632342917!2d7.002340315859823!3d49.235287979331875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDMxJzEzLjIiTiA3wrAyMicwOC42Ilc!5e0!3m2!1sen!2sus!4v1619635482446!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interaktive Website</title>
+    <title>Wegweiser der Htw Saar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -104,45 +12,64 @@ footer {
             text-align: center;
         }
 
-        .location {
-            margin-bottom: 30px;
+        h1 {
+            color: blue;
         }
 
-        .location img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 10px;
-            cursor: pointer;
+        #main-content {
+            margin-top: 20px;
         }
 
-        .instructions {
-            margin-top: 10px;
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        #overlay-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Interaktive Wegweiser</h1>
+    <h1>Wegweiser der Htw Saar</h1>
 
-    <div class="location" onclick="showInstructions('Ort 1')">
-        <h2>Ort 1</h2>
-        <img src="pfad/zum/bild1.jpg" alt="Bild 1">
+    <div id="main-content">
+        <p>Herzlich Willkommen liebe Studenten und Besucher der Htw Saar. Durch die Erstellung dieser Website wollen wir Ihnen dabei helfen, die Gebäude und Standorte besser zu finden. Unsere Website beinhaltet grafische Übersichten, Gebäudeinformationen sowie eine detaillierte Navigation zu Mensa und Druckerräumen.</p>
     </div>
 
-    <div class="location" onclick="showInstructions('Ort 2')">
-        <h2>Ort 2</h2>
-        <img src="pfad/zum/bild2.jpg" alt="Bild 2">
+    <div id="menu" onclick="toggleMenu()">
+        <span>&#8226;</span>
+        <span>&#8226;</span>
+        <span>&#8226;</span>
     </div>
 
-    <div id="instructions" class="instructions"></div>
+    <div id="overlay">
+        <div id="overlay-content"></div>
+    </div>
 
     <script>
-        function showInstructions(location) {
-            // Hier kannst du die Anweisungen für jeden Ort dynamisch setzen
-            var instructionsDiv = document.getElementById("instructions");
-            instructionsDiv.innerHTML = "<h2>" + location + "</h2><p>Beschreibung, wie man zu " + location + " gelangt...</p>";
+        function toggleMenu() {
+            document.getElementById("overlay").style.display = "flex";
+            document.getElementById("overlay-content").innerHTML = "<p>1. Informationen</p><p>2. Mensa</p><p>3. Druckerräume</p><p>4. Gebäude</p>";
         }
+
+        document.getElementById("overlay").addEventListener("click", function () {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay-content").innerHTML = "";
+        });
     </script>
 
 </body>
