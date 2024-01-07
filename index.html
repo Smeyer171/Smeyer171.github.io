@@ -3,327 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interaktiver Wegweiser</title>
+    <title>HTW Saar Wegweiser</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 20px;
         }
-
         header {
-            background-color: #333;
-            color: #fff;
             text-align: center;
-            padding: 1em;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        main {
-            padding: 2em;
-        }
-
-        footer {
-            background-color: #333;
+            padding: 10px;
+            background-color: #3498db;
             color: #fff;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
-
-        .areas {
+        nav {
             display: flex;
             justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 1em;
+            background-color: #f2f2f2;
+            padding: 10px;
         }
-
-        .area {
-            width: 30%;
-            padding: 1em;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-            overflow: hidden;
+        section {
+            margin: 20px 0;
         }
-
-        .area:hover {
-            transform: scale(1.05);
-        }
-
-        #details {
-            display: none;
-            margin-top: 2em;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        #detailsTitle {
-            font-size: 1.5em;
-            margin-bottom: 0.5em;
-        }
-
-        #detailsContent {
-            line-height: 1.6;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal {
-            background: #fff;
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1em;
-            right: 1em;
-            cursor: pointer;
-            font-size: 1.2em;
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-
     <header>
-        <h1>Wegweiser der HtW-Saar</h1>
+        <h1>HTW Saar Wegweiser</h1>
     </header>
-
-    <main id="app">
-        <router-view></router-view>
-        <router-link v-for="area in areas" :key="area.id" :to="'/area/' + area.id">
-            <div class="area" @click="loadDetails(area.id)">
-                {{ area.name }}
-            </div>
-        </router-link>
-
-        <div class="overlay" :class="{ active: showModal }" @click="closeModal">
-            <div class="modal" @click.stop>
-                <span class="modal-close" @click="closeModal">&times;</span>
-                <h2 id="detailsTitle">{{ selectedArea.name }}</h2>
-                <p id="detailsContent">{{ selectedArea.details }}</p>
-            </div>
-        </div>
-    </main>
-
+    
+    <nav>
+        <a href="#gebaeude">Gebäude</a>
+        <a href="#veranstaltungen">Veranstaltungen</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+    
+    <section id="gebaeude">
+        <h2>Gebäude</h2>
+        <!-- Füge hier Informationen zu den Gebäuden ein -->
+    </section>
+    
+    <section id="veranstaltungen">
+        <h2>Veranstaltungen</h2>
+        <!-- Füge hier Informationen zu Veranstaltungen ein -->
+    </section>
+    
+    <section id="kontakt">
+        <h2>Kontakt</h2>
+        <!-- Füge hier Kontaktinformationen ein -->
+    </section>
+    
     <footer>
-        <p>&copy; 2024 Wegweiser der HTW_Saar</p>
+        <p>&copy; 2024 HTW Saar Wegweiser</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-    <script src="https://unpkg.com/vuex"></script>
-    <script>
-        const Home = { template: '<div class="areas"><router-link to="/area/bereich1"><div class="area">Bereich 1</div></router-link><router-link to="/area/bereich2"><div class="area">Bereich 2</div></router-link><router-link to="/area/bereich3"><div class="area">Bereich 3</div></router-link></div>' };
-
-        const Area = {
-            template: '<div class="areas"><div class="area" @click="loadDetails($route.params.id)">{{ $route.params.id }}</div></div>',
-            methods: {
-                async loadDetails(areaId) {
-                    try {
-                        // Hier könntest du eine API-Anfrage einfügen
-                        <!-- ... (Bereits existierender Code) ... -->
-
-<script>
-    const Home = {
-        template: `
-            <div class="areas">
-                <router-link to="/area/mensa"><div class="area">Mensa</div></router-link>
-                <router-link to="/area/druckerraum"><div class="area">Druckerräume</div></router-link>
-                <router-link to="/area/gebaeude"><div class="area">Gebäude</div></router-link>
-                <router-link to="/area/wichtige-informationen"><div class="area">Wichtige Informationen</div></router-link>
-                <router-link to="/area/entwicklerteam"><div class="area">Entwicklerteam</div></router-link>
-            </div>
-        `
-    };
-
-    const Mensa = {
-        template: '<div class="areas"><div class="area" @click="loadDetails(\'mensa\')">Mensa</div></div>',
-        methods: {
-            loadDetails(areaId) {
-                this.$store.commit('setSelectedArea', {
-                    name: areaId,
-                    details: 'Die Mensa bietet eine vielfältige Auswahl an Speisen für Studierende und Mitarbeiter der htw saar.'
-                });
-
-                this.$store.commit('setShowModal', true);
-
-                setTimeout(() => {
-                    document.getElementById('details').style.opacity = '1';
-                }, 50);
-            }
-        }
-    };
-
-    const Druckerraum = {
-        template: '<div class="areas"><div class="area" @click="loadDetails(\'druckerraum\')">Druckerräume</div></div>',
-        methods: {
-            loadDetails(areaId) {
-                this.$store.commit('setSelectedArea', {
-                    name: areaId,
-                    details: 'Die Druckerräume stehen den Studierenden zum Drucken von Dokumenten zur Verfügung.'
-                });
-
-                this.$store.commit('setShowModal', true);
-
-                setTimeout(() => {
-                    document.getElementById('details').style.opacity = '1';
-                }, 50);
-            }
-        }
-    };
-
-    const Gebaeude = {
-        template: '<div class="areas"><div class="area" @click="loadDetails(\'gebaeude\')">Gebäude</div></div>',
-        methods: {
-            loadDetails(areaId) {
-                this.$store.commit('setSelectedArea', {
-                    name: areaId,
-                    details: 'Die htw saar verfügt über mehrere Gebäude, die für verschiedene Fachbereiche und Einrichtungen genutzt werden.'
-                });
-
-                this.$store.commit('setShowModal', true);
-
-                setTimeout(() => {
-                    document.getElementById('details').style.opacity = '1';
-                }, 50);
-            }
-        }
-    };
-
-    const WichtigeInformationen = {
-        template: '<div class="areas"><div class="area" @click="loadDetails(\'wichtige-informationen\')">Wichtige Informationen</div></div>',
-        methods: {
-            loadDetails(areaId) {
-                this.$store.commit('setSelectedArea', {
-                    name: areaId,
-                    details: 'Hier finden Sie wichtige Informationen zu Veranstaltungen, Prüfungen und anderen relevanten Themen.'
-                });
-
-                this.$store.commit('setShowModal', true);
-
-                setTimeout(() => {
-                    document.getElementById('details').style.opacity = '1';
-                }, 50);
-            }
-        }
-    };
-
-    const Entwicklerteam = {
-        template: '<div class="areas"><div class="area" @click="loadDetails(\'entwicklerteam\')">Entwicklerteam</div></div>',
-        methods: {
-            loadDetails(areaId) {
-                this.$store.commit('setSelectedArea', {
-                    name: areaId,
-                    details: 'Das Entwicklerteam hat diese interaktive Wegweiser-Website erstellt.'
-                });
-
-                this.$store.commit('setShowModal', true);
-
-                setTimeout(() => {
-                    document.getElementById('details').style.opacity = '1';
-                }, 50);
-            }
-        }
-    };
-
-    const routes = [
-        { path: '/', component: Home },
-        { path: '/area/mensa', component: Mensa },
-        { path: '/area/druckerraum', component: Druckerraum },
-        { path: '/area/gebaeude', component: Gebaeude },
-        { path: '/area/wichtige-informationen', component: WichtigeInformationen },
-        { path: '/area/entwicklerteam', component: Entwicklerteam }
-    ];
-
-    // ... (Bereits existierender Code) ...
-</script>
-
-<!-- ... (Bereits existierender Code) ... -->
-
-                        // und die Ergebnisse in den Vuex Store speichern
-                        this.$store.commit('setSelectedArea', {
-                            name: areaId,
-                            details: `Details für ${areaId}. Hier könnten Informationen von einer API kommen.`
-                        });
-
-                        this.$store.commit('setShowModal', true);
-
-                        setTimeout(() => {
-                            document.getElementById('details').style.opacity = '1';
-                        }, 50);
-
-                    } catch (error) {
-                        console.error('Fehler beim Laden der Details:', error);
-                    }
-                }
-            }
-        };
-
-        const routes = [
-            { path: '/', component: Home },
-            { path: '/area/:id', component: Area }
-        ];
-
-        const router = new VueRouter({
-            routes
-        });
-
-        const store = new Vuex.Store({
-            state: {
-                areas: [
-                    { id: 'bereich1', name: 'Bereich 1' },
-                    { id: 'bereich2', name: 'Bereich 2' },
-                    { id: 'bereich3', name: 'Bereich 3' }
-                ],
-                selectedArea: {},
-                showModal: false
-            },
-            mutations: {
-                setSelectedArea(state, area) {
-                    state.selectedArea = area;
-                },
-                setShowModal(state, value) {
-                    state.showModal = value;
-                }
-            }
-        });
-
-        new Vue({
-            el: '#app',
-            router,
-            store
-        });
-    </script>
-
 </body>
 </html>
 
