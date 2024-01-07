@@ -90,3 +90,62 @@ footer {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktive Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .location {
+            margin-bottom: 30px;
+        }
+
+        .location img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .instructions {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Interaktive Wegweiser</h1>
+
+    <div class="location" onclick="showInstructions('Ort 1')">
+        <h2>Ort 1</h2>
+        <img src="pfad/zum/bild1.jpg" alt="Bild 1">
+    </div>
+
+    <div class="location" onclick="showInstructions('Ort 2')">
+        <h2>Ort 2</h2>
+        <img src="pfad/zum/bild2.jpg" alt="Bild 2">
+    </div>
+
+    <div id="instructions" class="instructions"></div>
+
+    <script>
+        function showInstructions(location) {
+            // Hier kannst du die Anweisungen für jeden Ort dynamisch setzen
+            var instructionsDiv = document.getElementById("instructions");
+            instructionsDiv.innerHTML = "<h2>" + location + "</h2><p>Beschreibung, wie man zu " + location + " gelangt...</p>";
+        }
+    </script>
+
+</body>
+
+</html>
+
