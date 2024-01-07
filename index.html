@@ -118,11 +118,12 @@
     </header>
 
     <main id="app">
-        <div class="areas">
-            <div v-for="area in areas" :key="area.id" class="area" @click="loadDetails(area.id)">
+        <router-view></router-view>
+        <router-link v-for="area in areas" :key="area.id" :to="'/area/' + area.id">
+            <div class="area" @click="loadDetails(area.id)">
                 {{ area.name }}
             </div>
-        </div>
+        </router-link>
 
         <div class="overlay" :class="{ active: showModal }" @click="closeModal">
             <div class="modal" @click.stop>
@@ -138,29 +139,24 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
     <script>
-        new Vue({
-            el: '#app',
-            data: {
-                areas: [
-                    { id: 'bereich1', name: 'Bereich 1' },
-                    { id: 'bereich2', name: 'Bereich 2' },
-                    { id: 'bereich3', name: 'Bereich 3' }
-                ],
-                selectedArea: {},
-                showModal: false
-            },
+        const Home = { template: '<div class="areas"><router-link to="/area/bereich1"><div class="area">Bereich 1</div></router-link><router-link to="/area/bereich2"><div class="area">Bereich 2</div></router-link><router-link to="/area/bereich3"><div class="area">Bereich 3</div></router-link></div>' };
+
+        const Area = {
+            template: '<div class="areas"><div class="area" @click="loadDetails($route.params.id)">{{ $route.params.id }}</div></div>',
             methods: {
                 async loadDetails(areaId) {
                     try {
                         // Hier könntest du eine API-Anfrage einfügen
-                        // und die Ergebnisse in selectedArea speichern
-                        this.selectedArea = {
+                        // und die Ergebnisse in den Vuex Store speichern
+                        this.$store.commit('setSelectedArea', {
                             name: areaId,
                             details: `Details für ${areaId}. Hier könnten Informationen von einer API kommen.`
-                        };
+                        });
 
-                        this.showModal = true;
+                        this.$store.commit('setShowModal', true);
 
                         setTimeout(() => {
                             document.getElementById('details').style.opacity = '1';
@@ -169,17 +165,49 @@
                     } catch (error) {
                         console.error('Fehler beim Laden der Details:', error);
                     }
-                },
-                closeModal() {
-                    this.showModal = false;
-                    document.getElementById('details').style.opacity = '0';
                 }
             }
+        };
+
+        const routes = [
+            { path: '/', component: Home },
+            { path: '/area/:id', component: Area }
+        ];
+
+        const router = new VueRouter({
+            routes
+        });
+
+        const store = new Vuex.Store({
+            state: {
+                areas: [
+                    { id: 'bereich1', name: 'Bereich 1' },
+                    { id: 'bereich2', name: 'Bereich 2' },
+                    { id: 'bereich3', name: 'Bereich 3' }
+                ],
+                selectedArea: {},
+                showModal: false
+            },
+            mutations: {
+                setSelectedArea(state, area) {
+                    state.selectedArea = area;
+                },
+                setShowModal(state, value) {
+                    state.showModal = value;
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            router,
+            store
         });
     </script>
 
 </body>
 </html>
+
 
 
 
