@@ -67,7 +67,11 @@
     <script>
         function toggleMenu() {
             document.getElementById("overlay").style.display = "flex";
-            document.getElementById("overlay-content").innerHTML = "<h2>1. Wichtige Informationen</h2><textarea rows='4' cols='50' placeholder='Schreiben Sie hier...'></textarea><button onclick='closeOverlay()'>Schließen</button>";
+            document.getElementById("overlay-content").innerHTML = "<h2>1. Wichtige Informationen</h2><button onclick='openWindow(1)'>Öffnen</button><br><h2>2. Mensa</h2><button onclick='openWindow(2)'>Öffnen</button><br><h2>3. Druckerräume</h2><button onclick='openWindow(3)'>Öffnen</button><br><h2>4. Gebäude</h2><button onclick='openWindow(4)'>Öffnen</button><br><button onclick='closeOverlay()'>Schließen</button>";
+        }
+
+        function openWindow(number) {
+            document.getElementById("overlay-content").innerHTML = "<h2>Fenster " + number + "</h2><textarea rows='4' cols='50' placeholder='Schreiben Sie hier...'></textarea><button onclick='closeOverlay()'>Schließen</button>";
         }
 
         function closeOverlay() {
@@ -79,5 +83,3 @@
 </body>
 
 </html>
-
-
