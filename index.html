@@ -208,6 +208,124 @@
 </body>
 </html>
 
+<!-- ... (Bereits existierender Code) ... -->
+
+<script>
+    const Home = {
+        template: `
+            <div class="areas">
+                <router-link to="/area/mensa"><div class="area">Mensa</div></router-link>
+                <router-link to="/area/druckerraum"><div class="area">Druckerräume</div></router-link>
+                <router-link to="/area/gebaeude"><div class="area">Gebäude</div></router-link>
+                <router-link to="/area/wichtige-informationen"><div class="area">Wichtige Informationen</div></router-link>
+                <router-link to="/area/entwicklerteam"><div class="area">Entwicklerteam</div></router-link>
+            </div>
+        `
+    };
+
+    const Mensa = {
+        template: '<div class="areas"><div class="area" @click="loadDetails(\'mensa\')">Mensa</div></div>',
+        methods: {
+            loadDetails(areaId) {
+                this.$store.commit('setSelectedArea', {
+                    name: areaId,
+                    details: 'Die Mensa bietet eine vielfältige Auswahl an Speisen für Studierende und Mitarbeiter der htw saar.'
+                });
+
+                this.$store.commit('setShowModal', true);
+
+                setTimeout(() => {
+                    document.getElementById('details').style.opacity = '1';
+                }, 50);
+            }
+        }
+    };
+
+    const Druckerraum = {
+        template: '<div class="areas"><div class="area" @click="loadDetails(\'druckerraum\')">Druckerräume</div></div>',
+        methods: {
+            loadDetails(areaId) {
+                this.$store.commit('setSelectedArea', {
+                    name: areaId,
+                    details: 'Die Druckerräume stehen den Studierenden zum Drucken von Dokumenten zur Verfügung.'
+                });
+
+                this.$store.commit('setShowModal', true);
+
+                setTimeout(() => {
+                    document.getElementById('details').style.opacity = '1';
+                }, 50);
+            }
+        }
+    };
+
+    const Gebaeude = {
+        template: '<div class="areas"><div class="area" @click="loadDetails(\'gebaeude\')">Gebäude</div></div>',
+        methods: {
+            loadDetails(areaId) {
+                this.$store.commit('setSelectedArea', {
+                    name: areaId,
+                    details: 'Die htw saar verfügt über mehrere Gebäude, die für verschiedene Fachbereiche und Einrichtungen genutzt werden.'
+                });
+
+                this.$store.commit('setShowModal', true);
+
+                setTimeout(() => {
+                    document.getElementById('details').style.opacity = '1';
+                }, 50);
+            }
+        }
+    };
+
+    const WichtigeInformationen = {
+        template: '<div class="areas"><div class="area" @click="loadDetails(\'wichtige-informationen\')">Wichtige Informationen</div></div>',
+        methods: {
+            loadDetails(areaId) {
+                this.$store.commit('setSelectedArea', {
+                    name: areaId,
+                    details: 'Hier finden Sie wichtige Informationen zu Veranstaltungen, Prüfungen und anderen relevanten Themen.'
+                });
+
+                this.$store.commit('setShowModal', true);
+
+                setTimeout(() => {
+                    document.getElementById('details').style.opacity = '1';
+                }, 50);
+            }
+        }
+    };
+
+    const Entwicklerteam = {
+        template: '<div class="areas"><div class="area" @click="loadDetails(\'entwicklerteam\')">Entwicklerteam</div></div>',
+        methods: {
+            loadDetails(areaId) {
+                this.$store.commit('setSelectedArea', {
+                    name: areaId,
+                    details: 'Das Entwicklerteam hat diese interaktive Wegweiser-Website erstellt.'
+                });
+
+                this.$store.commit('setShowModal', true);
+
+                setTimeout(() => {
+                    document.getElementById('details').style.opacity = '1';
+                }, 50);
+            }
+        }
+    };
+
+    const routes = [
+        { path: '/', component: Home },
+        { path: '/area/mensa', component: Mensa },
+        { path: '/area/druckerraum', component: Druckerraum },
+        { path: '/area/gebaeude', component: Gebaeude },
+        { path: '/area/wichtige-informationen', component: WichtigeInformationen },
+        { path: '/area/entwicklerteam', component: Entwicklerteam }
+    ];
+
+    // ... (Bereits existierender Code) ...
+</script>
+
+<!-- ... (Bereits existierender Code) ... -->
 
 
 
