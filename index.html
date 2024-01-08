@@ -3,225 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <title>Wegweiser der HTW Saar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Grundlegendes Styling */
-        * {
-            box-sizing: border-box;
+        /* Grundlegende Styles */
+        body, html {
+            height: 100%;
             margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f4f4;
             color: #333;
-            background-color: #f4f4f4;
         }
-        
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
-        }
-        
-        /* Hauptkopfzeile */
-        header {
-            background: #005f73;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #00b4d8 solid 3px;
-        }
-        
-        header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        header li {
-            float: left;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        
-        header #branding {
-            float: left;
-        }
-        
-        header #branding h1 {
-            margin: 0;
-        }
-        
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-        
-        header .highlight, header .current a {
-            color: #e6d200;
-            font-weight: bold;
-        }
-        
-        header a:hover {
-            color: #ffffff;
-            font-weight: bold;
-        }
-        
-        /* Showcase */
-        .showcase {
-            background: url('path_to_your_image.jpg') no-repeat center center/cover;
-            min-height: 400px;
-            text-align: center;
-            color: #fff;
-            padding-top: 100px;
-        }
-        
-        .showcase h1 {
-            font-size: 55px;
-            line-height: 1.2em;
-            padding-bottom: 20px;
-        }
-        
-        /* Newsletter */
-        .newsletter {
-            padding: 15px;
-            color: #fff;
-            background: #00b4d8;
-        }
-        
-        .newsletter h1 {
-            text-align: center;
-            padding-bottom: 15px;
-        }
-        
-        .newsletter form {
+
+        /* Navigationsleiste */
+        .navbar {
             display: flex;
             justify-content: center;
-            align-items: center;
+            background-color: #004d7a;
+            overflow: hidden;
         }
-        
-        .newsletter input[type="email"] {
-            padding: 4px;
-            height: 25px;
-            width: 250px;
-            margin-right: 10px;
-        }
-        
-        .newsletter input[type="submit"] {
-            height: 35px;
-            background: #e6d200;
-            color: #333;
-            border: 0;
-            padding-left: 20px;
-            padding-right: 20px;
+
+        /* Tab-Links */
+        .tab-link {
+            padding: 14px 16px;
+            text-align: center;
+            font-size: 17px;
+            color: white;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
-        
-        .newsletter input[type="submit"]:hover {
-            background: #fff;
-            color: #333;
+
+        .tab-link:hover {
+            background-color: #0077b6;
         }
-        
-        /* Boxes Section */
-        .boxes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap
-        /* Fortsetzung der Boxes Section */
-        grid-gap: 20px;
-        margin-top: 20px;
-        padding-bottom: 20px;
-      }
 
-      .box {
-        background: #0077b6;
-        padding: 20px;
-        border-radius: 10px;
-        color: white;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      }
-
-      .box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-      }
-
-      .box h3 {
-        margin-bottom: 10px;
-      }
-
-      /* Responsive Grid */
-      @media screen and (max-width: 960px) {
-        .boxes {
-          grid-template-columns: repeat(2, 1fr);
+        /* Aktive Tab-Link */
+        .tab-link.active {
+            background-color: #0096d6;
         }
-      }
 
-      @media screen and (max-width: 600px) {
-        .boxes {
-          grid-template-columns: 1fr;
+        /* Tab-Inhalte */
+        .tab-content {
+            display: none;
+            padding: 20px;
+            animation: fadeEffect 1s;
         }
-      }
 
-      /* Footer */
-      footer {
-        background: #333;
-        color: #fff;
-        text-align: center;
-        padding: 30px 0;
-      }
+        /* Animation für den Tab-Inhalt */
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
 
-      footer p {
-        margin: 0;
-      }
+        /* Aktiver Tab-Inhalt */
+        .tab-content.active {
+            display: block;
+        }
 
-      footer a {
-        color: #00b4d8;
-      }
-
-      footer a:hover {
-        color: #e6d200;
-      }
+        /* Schönere Übergänge für das Tab-Panel */
+        .tab-panel {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1000px;
+        }
     </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div id="branding">
-        <h1><span class="highlight">HTW</span> Saar Wegweiser</h1>
-      </div>
-      <nav>
-        <ul>
-          <li class="current"><a href="javascript:void(0);" onclick="showSection('orientierungsplan')">Orientierungsplan</a></li>
-          <li><a href="javascript:void(0);" onclick="showSection('mensa')">Mensa</a></li>
-          <li><a href="javascript:void(0);" onclick="showSection('druckerraeume')">Druckerräume</a></li>
-          <li><a href="javascript:void(0);" onclick="showSection('kontakt')">Kontakt</a></li>
-        </ul>
-      </nav>
+
+<div class="navbar">
+    <div class="tab-link active" data-target="orientierungsplan-content">Orientierungsplan</div>
+    <div class="tab-link" data-target="mensa-content">Mensa</div>
+    <div class="tab-link" data-target="druckerraeume-content">Druckerräume</div>
+    <div class="tab-link" data-target="kontakt-content">Kontakt</div>
+</div>
+
+<div class="tab-panel">
+    <div id="orientierungsplan-content" class="tab-content active">
+        <h2>Orientierungsplan</h2>
+        <p>Informationen zum Orientierungsplan...</p>
     </div>
-  </header>
-
-  <section class="showcase">
-    <div class="container">
-      <h1>Entdecken Sie den Campus</h1>
+    <div id="mensa-content" class="tab-content">
+        <h2>Mensa</h2>
+        <p>Informationen zur Mensa...</p>
     </div>
-  </section>
+    <div id="druckerraeume-content" class="tab-content">
+        <h2>Druckerräume</h2>
+        <p>Informationen zu den Druckerräumen...</p>
+    </div>
+    <div id="kontakt-content" class="tab-content">
+        <h2>Kontakt</h2>
+        <p>Kontaktinformationen...</p>
+    </div>
+</div>
 
-  <!-- Weitere Sektionen -->
+<script>
+    // JavaScript für interaktive Tabs
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
 
-  <footer>
-    <p>&copy; 2024 HTW Saar. Alle Rechte vorbehalten.</p>
-  </footer>
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = document.getElementById(tab.dataset.target);
 
-  <script>
-    // JavaScript-Code für interaktive Funktionalität
-  </script>
+            // Entferne 'active' von allen Tabs und Inhalten
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Füge 'active' zu dem ausgewählten Tab und Inhalt hinzu
+            tab.classList.add('active');
+            target.classList.add('active');
+        });
+    });
+</script>
+
 </body>
 </html>
 
