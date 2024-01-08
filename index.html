@@ -4,7 +4,26 @@
     <meta charset="UTF-8">
     <title>Wegweiser der HTW Saar</title>
     <style>
-        /* Hier würde das CSS für das Styling der Website eingefügt */
+        /* Grundlegendes Styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        section {
+            display: none;
+        }
+        /* Styling für aktiven Abschnitt */
+        .active {
+            display: block;
+        }
+        /* Weitere Stilregeln können hier hinzugefügt werden */
     </style>
 </head>
 <body>
@@ -13,24 +32,57 @@
     </header>
     <nav>
         <ul>
-            <li><a href="#orientierungsplan">Orientierungsplan</a></li>
-            <li><a href="#mensa">Mensa</a></li>
-            <li><a href="#druckerraeume">Druckerräume</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="javascript:void(0);" onclick="showSection('orientierungsplan')">Orientierungsplan</a></li>
+            <li><a href="javascript:void(0);" onclick="showSection('mensa')">Mensa</a></li>
+            <li><a href="javascript:void(0);" onclick="showSection('druckerraeume')">Druckerräume</a></li>
+            <li><a href="javascript:void(0);" onclick="showSection('kontakt')">Kontakt</a></li>
         </ul>
     </nav>
-    <section id="orientierungsplan">
-        <h2>Orientierungsplan</h2>
-        <!-- Hier würde das Bild eingebunden und erklärt -->
-        <img src="path_to_your_image.jpg" alt="Orientierungsplan der HTW Saar">
-        <p>Hier würde die Erklärung des Orientierungsplans stehen.</p>
+    <section id="orientierungsplan" class="content-section">
+        <!-- Inhalt für Orientierungsplan -->
     </section>
-    <!-- Weitere Abschnitte für Mensa, Druckerräume, Kontakt -->
+    <section id="mensa" class="content-section">
+        <!-- Inhalt für Mensa -->
+    </section>
+    <section id="druckerraeume" class="content-section">
+        <!-- Inhalt für Druckerräume -->
+    </section>
+    <section id="kontakt" class="content-section">
+        <!-- Inhalt für Kontakt -->
+    </section>
     <footer>
         <!-- Informationen zum Footer -->
     </footer>
     <script>
-        // Hier könnte JavaScript Code stehen, um die Website interaktiv zu machen
+        // Funktion zum Anzeigen des entsprechenden Abschnitts
+        function showSection(sectionId) {
+            // Alle Abschnitte verbergen
+            document.querySelectorAll('.content-section').forEach((section) => {
+                section.classList.remove('active');
+            });
+            // Gewählten Abschnitt anzeigen
+            document.getElementById(sectionId).classList.add('active');
+        }
+        
+        // Event Listener für die Navigation, um die Seiten dynamisch ohne Neuladen zu laden
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('onclick').split("'")[1];
+                // Hier könnte ein AJAX-Call erfolgen, um den Inhalt zu laden
+                // Zum Beispiel: loadContent(sectionId);
+                showSection(sectionId);
+            });
+        });
+        
+        // Funktion zum asynchronen Laden des Inhalts (Platzhalter für AJAX)
+        function loadContent(sectionId) {
+            // Hier würde man normalerweise einen AJAX-Request ausführen
+            // und den Inhalt in den entsprechenden Abschnitt laden
+        }
+        
+        // Initial den Orientierungsplan anzeigen
+        showSection('orientierungsplan');
     </script>
 </body>
 </html>
