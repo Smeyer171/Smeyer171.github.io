@@ -139,41 +139,6 @@
     </div>
 
     <script>
-        // JavaScript-Code für die Interaktivität hier einfügen
-        const campusMap = document.getElementById("campus-map");
-        const messaInfo = document.getElementById("messa-info");
-        const druckerraumInfo = document.getElementById("druckerraum-info");
-
-        // Fügen Sie Event-Listener für Klicks auf bestimmte Bereiche des Bildes hinzu
-        campusMap.addEventListener("click", function(event) {
-            const x = event.offsetX;
-            const y = event.offsetY;
-
-            // Hier können Sie die Koordinaten für die Bereiche definieren und Aktionen auslösen
-            if (isInMensaArea(x, y)) {
-                // Der Benutzer hat auf den Mensa-Bereich geklickt
-                messaInfo.style.display = "block"; // Zeige die Mensa-Informationen an
-                druckerraumInfo.style.display = "none"; // Verstecke die Druckerraum-Informationen
-            } else if (isInDruckerraumArea(x, y)) {
-                // Der Benutzer hat auf den Druckerraum-Bereich geklickt
-                druckerraumInfo.style.display = "block"; // Zeige die Druckerraum-Informationen an
-                messaInfo.style.display = "none"; // Verstecke die Mensa-Informationen
-            }
-        });
-
-        // Funktionen zur Überprüfung, ob der Klick in bestimmten Bereichen liegt
-        function isInMensaArea(x, y) {
-            // Hier die Koordinaten für den Mensa-Bereich festlegen und überprüfen
-            // Beispiel: return (x >= minX && x <= maxX && y >= minY && y <= maxY);
-        }
-
-        function isInDruckerraumArea(x, y) {
-            // Hier die Koordinaten für den Druckerraum-Bereich festlegen und überprüfen
-            // Beispiel: return (x >= minX && x <= maxX && y >= minY && y <= maxY);
-        }
-    </script>
-</body>
-</html>
 
     </section>
     
