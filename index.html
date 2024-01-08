@@ -108,6 +108,73 @@
         <h2>Gebäude</h2>
         <p>Hier findest du Informationen zu den verschiedenen Gebäuden der HTW Saar.</p>
         <!-- Füge hier weitere Inhalte hinzu -->
+        <!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktive Campus-Karte</title>
+    <style>
+        /* Fügen Sie hier Ihre CSS-Stile für das Bild hinzu */
+        #campus-map {
+            width: 100%; /* Breite des Bildes anpassen */
+            height: auto; /* Automatische Höhe basierend auf der Breite */
+            cursor: pointer; /* Zeige einen Zeigercursor beim Überfahren des Bildes */
+        }
+    </style>
+</head>
+<body>
+    <h1>Willkommen auf dem Campus</h1>
+    
+    <div id="map-container">
+        <img id="campus-map" src="bild-url.jpg" alt="Campus-Karte">
+    </div>
+    
+    <div id="messa-info" style="display: none;">
+        <!-- Informationen zur Mensa einfügen -->
+    </div>
+    
+    <div id="druckerraum-info" style="display: none;">
+        <!-- Informationen zu den Druckerräumen einfügen -->
+    </div>
+
+    <script>
+        // JavaScript-Code für die Interaktivität hier einfügen
+        const campusMap = document.getElementById("campus-map");
+        const messaInfo = document.getElementById("messa-info");
+        const druckerraumInfo = document.getElementById("druckerraum-info");
+
+        // Fügen Sie Event-Listener für Klicks auf bestimmte Bereiche des Bildes hinzu
+        campusMap.addEventListener("click", function(event) {
+            const x = event.offsetX;
+            const y = event.offsetY;
+
+            // Hier können Sie die Koordinaten für die Bereiche definieren und Aktionen auslösen
+            if (isInMensaArea(x, y)) {
+                // Der Benutzer hat auf den Mensa-Bereich geklickt
+                messaInfo.style.display = "block"; // Zeige die Mensa-Informationen an
+                druckerraumInfo.style.display = "none"; // Verstecke die Druckerraum-Informationen
+            } else if (isInDruckerraumArea(x, y)) {
+                // Der Benutzer hat auf den Druckerraum-Bereich geklickt
+                druckerraumInfo.style.display = "block"; // Zeige die Druckerraum-Informationen an
+                messaInfo.style.display = "none"; // Verstecke die Mensa-Informationen
+            }
+        });
+
+        // Funktionen zur Überprüfung, ob der Klick in bestimmten Bereichen liegt
+        function isInMensaArea(x, y) {
+            // Hier die Koordinaten für den Mensa-Bereich festlegen und überprüfen
+            // Beispiel: return (x >= minX && x <= maxX && y >= minY && y <= maxY);
+        }
+
+        function isInDruckerraumArea(x, y) {
+            // Hier die Koordinaten für den Druckerraum-Bereich festlegen und überprüfen
+            // Beispiel: return (x >= minX && x <= maxX && y >= minY && y <= maxY);
+        }
+    </script>
+</body>
+</html>
+
     </section>
     
     <section id="Mensa">
