@@ -119,7 +119,35 @@
         <p>Herzlich Wilkommen auf unserer Website! 
         Hier finden sie unseren Orientierungsplan, der ihnen einen umfassenden Überblick bietet und ihnen dabei
         hilft, schnell die Informationen zu finden. die Sie suchen.</p>
-<img src="https://www.htwsaar.de/wiwi/campusleben/campusvorstellung/dateien/orientierungsplancrb_4.jpg/@@images/image/large"
+
+      <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interaktives Bild</title>
+<style>
+  .interactive-image {
+    transition: transform 0.3s ease; /* Weiche Animation für die Transformation */
+    cursor: pointer; /* Verändert den Cursor, um Klickbarkeit anzuzeigen */
+  }
+  .interactive-image:hover {
+    transform: scale(1.1); /* Vergrößert das Bild beim Mouseover */
+  }
+</style>
+<script>
+  function imageClicked() {
+    alert('Sie haben auf das Bild geklickt!'); /* Alert-Fenster beim Klicken */
+  }
+</script>
+</head>
+<body>
+
+<img 
+  src="https://www.htwsaar.de/wiwi/campusleben/campusvorstellung/dateien/orientierungsplancrb_4.jpg/@@images/image/large" 
+  alt="Beschreibung des Bildes" 
+  class="interactive-image"
+  onclick="imageClicked();" /* Event-Handler für Klick-Event */
+>
+  
 </div>
   
     </div>
