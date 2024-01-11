@@ -1,169 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Wegweiser der HTW Saar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Grundlegende Styles und weitere Styles... */
-        header {
-            background: #005f73; /* Dunkelblau */
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: 700;
-            font-family: 'Open Sans', sans-serif;
-        }
-        /* Navigationsleiste, Tab-Links und Tab-Inhalte Styles... */
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Wegweiser der HTW Saar</h1>
-    </header>
-    
-    <!-- Navigation und Inhalt hier... -->
-
-    <script>
-        // JavaScript für interaktive Tabs...
-    </script>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Wegweiser der HTW Saar</title>
-    <style>
-        /* Grundlegende Styles */
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f4f4;
-            color: #333;
-        }
-
-        /* Navigationsleiste */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            background-color: #004d7a;
-            overflow: hidden;
-        }
-
-        /* Tab-Links */
-        .tab-link {
-            padding: 14px 16px;
-            text-align: center;
-            font-size: 17px;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .tab-link:hover {
-            background-color: #0077b6;
-        }
-
-        /* Aktive Tab-Link */
-        .tab-link.active {
-            background-color: #0096d6;
-        }
-
-        /* Tab-Inhalte */
-        .tab-content {
-            display: none;
-            padding: 20px;
-            animation: fadeEffect 1s;
-        }
-
-        /* Animation für den Tab-Inhalt */
-        @keyframes fadeEffect {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-
-        /* Aktiver Tab-Inhalt */
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Schönere Übergänge für das Tab-Panel */
-        .tab-panel {
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            border-radius: 4px;
-            background: white;
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 1000px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTW Saar Wegweiser</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+  }
+  .navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .interactive-map {
+    width: 100%;
+    height: auto;
+  }
+  .content {
+    padding: 20px;
+  }
+</style>
 </head>
 <body>
 
 <div class="navbar">
-    <div class="tab-link active" data-target="orientierungsplan-content">Orientierungsplan</div>
-    <div class="tab-link" data-target="mensa-content">Mensa</div>
-    <div class="tab-link" data-target="druckerraeume-content">Druckerräume</div>
-    <div class="tab-link" data-target="kontakt-content">Kontakt</div>
+  <a href="orientierungsplan.html" target="_blank">Orientierungsplan</a>
+  <a href="mensa.html" target="_blank">Mensa</a>
+  <a href="druckerraume.html" target="_blank">Druckerräume</a>
+  <a href="kontakt.html" target="_blank">Kontakt</a>
 </div>
 
-<div class="tab-panel">
-    <div id="orientierungsplan-content" class="tab-content active">
-        <h2>Orientierungsplan</h2>
-        <p>Herzlich Wilkommen auf unserer Website! 
-        Hier finden sie unseren Orientierungsplan, der ihnen einen umfassenden Überblick bietet und ihnen dabei
-        hilft, schnell die Informationen zu finden. die Sie suchen.</p>
-  <img src=""
-</div>
-
-    </div>
-    <div id="mensa-content" class="tab-content">
-        <h2>Mensa</h2>
-        <p>Informationen zur Mensa
-        <img src="https://www.stw-saarland.de/_cms/1/attachment/9800_f1a6d7ccdaebc75bfd39d4b5be217c55.jpg"</p>
-    </div>
-    <div id="druckerraeume-content" class="tab-content">
-        <h2>Druckerräume</h2>
-        <p>Informationen zu den Druckerräumen...</p>
-    </div>
-    <div id="kontakt-content" class="tab-content">
-        <h2>Kontakt</h2>
-        <p>Campus Rotenbühl
-           Waldhausweg 14
-           66123 Saarbrücken
-           Telefon: (0681) 58 67 - 512
-           Telefax: (0681) 58 67 - 507</p>
-    </div>
+<div class="content">
+  <h1>Willkommen zum Wegweiser der HTW Saar</h1>
+  <p>Klicken Sie auf die Bereiche im Orientierungsplan, um mehr Informationen zu erhalten.</p>
+  <img src="orientierungsplan.jpg" alt="Interaktiver Orientierungsplan der HTW Saar" usemap="#campusmap" class="interactive-map">
+  
+  <map name="campusmap">
+    <area shape="rect" coords="x1,y1,x2,y2" href="bibliothek.html" alt="Bibliothek" target="_blank">
+    <!-- Weitere 'area'-Elemente für die interaktiven Bereiche des Plans -->
+  </map>
 </div>
 
 <script>
-    // JavaScript für interaktive Tabs
-    const tabs = document.querySelectorAll('.tab-link');
-    const contents = document.querySelectorAll('.tab-content');
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const target = document.getElementById(tab.dataset.target);
-
-            // Entferne 'active' von allen Tabs und Inhalten
-            tabs.forEach(t => t.classList.remove('active'));
-            contents.forEach(c => c.classList.remove('active'));
-
-            // Füge 'active' zu dem ausgewählten Tab und Inhalt hinzu
-            tab.classList.add('active');
-            target.classList.add('active');
-        });
-    });
+// Hier würde JavaScript-Code für erweiterte Interaktivität kommen
 </script>
 
 </body>
 </html>
-
 
 
