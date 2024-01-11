@@ -1,126 +1,167 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interaktiver Wegweiser - HTW Saar</title>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --primary-color: #005f73;
-    --hover-color: #0a9396;
-    --accent-color: #e9d8a6;
-    --text-color: #333;
-    --nav-height: 60px;
-  }
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f4;
-    color: var(--text-color);
-    line-height: 1.6;
-  }
-  .navbar {
-    background-color: var(--primary-color);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
-    align-items: center;
-    height: var(--nav-height);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  .navbar a {
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    transition: color 0.3s ease-out, transform 0.3s ease-out;
-    display: block;
-  }
-  .navbar a:not(:last-child) {
-    border-right: 1px solid #e9d8a6;
-  }
-  .navbar a:hover, .navbar a:focus {
-    color: var(--accent-color);
-    transform: translateY(-3px);
-  }
-  .hero-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-    padding: 40px;
-    background: url('path-to-hero-background.jpg') no-repeat center center/cover;
-  }
-  .hero-section h1 {
-    font-weight: 600;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  .interactive-map-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 20px;
-    background-color: #fff;
-    margin-top: -30px;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 500;
-  }
-  .interactive-map {
-    width: 80%;
-    margin: auto;
-    transition: box-shadow 0.3s ease-out;
-  }
-  .interactive-map:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  }
-  @media (max-width: 768px) {
-    .navbar {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, auto);
-      height: auto;
-    }
-    .navbar a:not(:last-child) {
-      border-right: none;
-      border-bottom: 1px solid #e9d8a6;
-    }
-    .interactive-map {
-      width: 95%;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>Wegweiser der HTW Saar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Grundlegende Styles und weitere Styles... */
+        header {
+            background: #005f73; /* Dunkelblau */
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Open Sans', sans-serif;
+        }
+        /* Navigationsleiste, Tab-Links und Tab-Inhalte Styles... */
+    </style>
 </head>
 <body>
 
-<header class="navbar">
-  <a href="orientierungsplan.html" target="_blank">Orientierungsplan</a>
-  <a href="mensa.html" target="_blank">Mensa</a>
-  <a href="druckerraume.html" target="_blank">Druckerräume</a>
-  <a href="kontakt.html" target="_blank">Kontakt</a>
-</header>
+    <header>
+        <h1>Wegweiser der HTW Saar</h1>
+    </header>
+    
+    <!-- Navigation und Inhalt hier... -->
 
-<section class="hero-section">
-  <h1>Entdecken Sie den HTW Saar Campus</h1>
-</section>
+    <script>
+        // JavaScript für interaktive Tabs...
+    </script>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Wegweiser der HTW Saar</title>
+    <style>
+        /* Grundlegende Styles */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
 
-<div class="interactive-map-container">
-  <img src="orientierungsplan.jpg" alt="Interaktiver
+        /* Navigationsleiste */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #004d7a;
+            overflow: hidden;
+        }
 
-  <map name="campusmap">
-    <area shape="rect" coords="x1,y1,x2,y2" href="bibliothek.html" alt="Bibliothek" target="_blank">
-    <!-- Fügen Sie weitere 'area'-Elemente für die interaktiven Bereiche des Plans hinzu -->
-  </map>
+        /* Tab-Links */
+        .tab-link {
+            padding: 14px 16px;
+            text-align: center;
+            font-size: 17px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tab-link:hover {
+            background-color: #0077b6;
+        }
+
+        /* Aktive Tab-Link */
+        .tab-link.active {
+            background-color: #0096d6;
+        }
+
+        /* Tab-Inhalte */
+        .tab-content {
+            display: none;
+            padding: 20px;
+            animation: fadeEffect 1s;
+        }
+
+        /* Animation für den Tab-Inhalt */
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* Aktiver Tab-Inhalt */
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Schönere Übergänge für das Tab-Panel */
+        .tab-panel {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="tab-link active" data-target="orientierungsplan-content">Orientierungsplan</div>
+    <div class="tab-link" data-target="mensa-content">Mensa</div>
+    <div class="tab-link" data-target="druckerraeume-content">Druckerräume</div>
+    <div class="tab-link" data-target="kontakt-content">Kontakt</div>
 </div>
 
+<div class="tab-panel">
+    <div id="orientierungsplan-content" class="tab-content active">
+        <h2>Orientierungsplan</h2>
+        <p>Herzlich Wilkommen auf unserer Website! 
+        Hier finden sie unseren Orientierungsplan, der ihnen einen umfassenden Überblick bietet und ihnen dabei
+        hilft, schnell die Informationen zu finden. die Sie suchen.</p>
+  <img src=""
+</div>
+
+    </div>
+    <div id="mensa-content" class="tab-content">
+        <h2>Mensa</h2>
+        <p>Informationen zur Mensa
+        <img src=""</p>
+    </div>
+    <div id="druckerraeume-content" class="tab-content">
+        <h2>Druckerräume</h2>
+        <p>Informationen zu den Druckerräumen...</p>
+    </div>
+    <div id="kontakt-content" class="tab-content">
+        <h2>Kontakt</h2>
+        <p>Campus Rotenbühl
+           Waldhausweg 14
+           66123 Saarbrücken
+           Telefon: (0681) 58 67 - 512
+           Telefax: (0681) 58 67 - 507</p>
+    </div>
+</div>
+
+<script>
+    // JavaScript für interaktive Tabs
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = document.getElementById(tab.dataset.target);
+
+            // Entferne 'active' von allen Tabs und Inhalten
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Füge 'active' zu dem ausgewählten Tab und Inhalt hinzu
+            tab.classList.add('active');
+            target.classList.add('active');
+        });
+    });
+</script>
 
 </body>
-</html>
+</html
 
