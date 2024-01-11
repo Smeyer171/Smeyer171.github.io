@@ -3,52 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HTW Saar Wegweiser</title>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+<title>Interaktiver Wegweiser - HTW Saar</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: 'Roboto', sans-serif;
+  :root {
+    --primary-color: #005f73;
+    --hover-color: #0a9396;
+    --accent-color: #e9d8a6;
+    --text-color: #333;
+    --nav-height: 60px;
+  }
+  * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+  body {
+    font-family: 'Open Sans', sans-serif;
     background-color: #f4f4f4;
-    color: #333;
+    color: var(--text-color);
+    line-height: 1.6;
   }
   .navbar {
-    background-color: #005f73;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-around;
+    background-color: var(--primary-color);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     align-items: center;
-    padding: 10px 0;
+    height: var(--nav-height);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
   .navbar a {
     color: white;
-    padding: 12px 18px;
+    padding: 10px 15px;
     text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
+    transition: color 0.3s ease-out, transform 0.3s ease-out;
+    display: block;
+  }
+  .navbar a:not(:last-child) {
+    border-right: 1px solid #e9d8a6;
   }
   .navbar a:hover, .navbar a:focus {
-    background-color: #0a9396;
-    color: #e9d8a6;
-    outline: none;
+    color: var(--accent-color);
+    transform: translateY(-3px);
   }
-  .content {
-    padding: 20px;
-    text-align: center;
+  .hero-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding: 40px;
+    background: url('path-to-hero-background.jpg') no-repeat center center/cover;
+  }
+  .hero-section h1 {
+    font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .interactive-map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #fff;
+    margin-top: -30px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 500;
   }
   .interactive-map {
     width: 80%;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    margin: auto;
+    transition: box-shadow 0.3s ease-out;
   }
   .interactive-map:hover {
-    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   }
   @media (max-width: 768px) {
-    .navbar a {
-      flex-grow: 1;
-      text-align: center;
+    .navbar {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, auto);
+      height: auto;
+    }
+    .navbar a:not(:last-child) {
+      border-right: none;
+      border-bottom: 1px solid #e9d8a6;
     }
     .interactive-map {
       width: 95%;
@@ -58,29 +100,27 @@
 </head>
 <body>
 
-<div class="navbar">
+<header class="navbar">
   <a href="orientierungsplan.html" target="_blank">Orientierungsplan</a>
   <a href="mensa.html" target="_blank">Mensa</a>
   <a href="druckerraume.html" target="_blank">Druckerräume</a>
   <a href="kontakt.html" target="_blank">Kontakt</a>
-</div>
+</header>
 
-<div class="content">
-  <h1>Willkommen zum interaktiven Wegweiser der HTW Saar</h1>
-  <p>Entdecken Sie unseren Campus und seine Einrichtungen durch den interaktiven Orientierungsplan.</p>
-  <img src="orientierungsplan.jpg" alt="Interaktiver Orientierungsplan der HTW Saar" usemap="#campusmap" class="interactive-map">
-  
+<section class="hero-section">
+  <h1>Entdecken Sie den HTW Saar Campus</h1>
+</section>
+
+<div class="interactive-map-container">
+  <img src="orientierungsplan.jpg" alt="Interaktiver
+
   <map name="campusmap">
     <area shape="rect" coords="x1,y1,x2,y2" href="bibliothek.html" alt="Bibliothek" target="_blank">
-    <!-- Weitere 'area'-Elemente für die interaktiven Bereiche des Plans -->
+    <!-- Fügen Sie weitere 'area'-Elemente für die interaktiven Bereiche des Plans hinzu -->
   </map>
 </div>
 
-<script>
-// Hier könnte JavaScript-Code für zusätzliche Interaktivität und dynamische Funktionen stehen
-</script>
 
 </body>
 </html>
-
 
