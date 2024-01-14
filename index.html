@@ -140,9 +140,65 @@
         Hier finden sie unseren Orientierungsplan, der ihnen einen umfassenden Überblick bietet und ihnen dabei
         hilft, schnell die Informationen zu finden. die Sie suchen.
         
-        
-    
-       
+<head>
+    <title>Meine Gebäude Website</title>
+    <style>
+        /* Grundlegende Styling-Regeln */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header, main, footer {
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: left;
+        }
+
+        .details h2 {
+            color: #0077cc;
+        }
+
+        nav ul li a:hover {
+            color: #0077cc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kopfbereich -->
+    <header>
+        <h1>Gebäudeinformationen</h1>
+        <!-- Navigationsmenü -->
+        <nav>
             <ul>
                 <li><a href="javascript:void(0)" onclick="toggleDetails('gebaeudeADetails')">Gebäude A</a></li>
                 <li><a href="javascript:void(0)" onclick="toggleDetails('gebaeudeBDetails')">Gebäude B</a></li>
@@ -182,7 +238,6 @@
         </div
 
 
- 
 </main>
 
 <!-- JavaScript für die Interaktivität -->
@@ -202,6 +257,10 @@
         }
     }
 </script>
+
+    
+       
+        
 
         </p>
  
