@@ -148,6 +148,137 @@
       
 </div>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meine Gebäude Website</title>
+    <style>
+        /* Grundlegende Styling-Regeln */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header, main, footer {
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: left;
+        }
+
+        .details h2 {
+            color: #0077cc;
+        }
+
+        nav ul li a:hover {
+            color: #0077cc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kopfbereich -->
+    <header>
+        <h1>Willkommen auf meiner Gebäude-Website</h1>
+        <!-- Navigationsmenü -->
+        <nav>
+            <ul>
+                <li><a href="javascript:void(0)" onclick="toggleDetails('gebaeudeADetails')">Gebäude A</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleDetails('gebaeudeBDetails')">Gebäude B</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleDetails('gebaeudeCDetails')">Gebäude C</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleDetails('gebaeudeDDetails')">Gebäude D</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleDetails('gebaeudeEDetails')">Gebäude E</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleDetails('gebaeudeFDetails')">Gebäude F</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main>
+        <!-- Abschnitte für jedes Gebäude -->
+        <div id="gebaeudeADetails" class="details">
+            <h2>Gebäude A</h2>
+            <p>Details zu Gebäude A...</p>
+        </div>
+
+        <div id="gebaeudeBDetails" class="details">
+            <h2>Gebäude B</h2>
+            <p>Details zu Gebäude B...</p>
+        </div>
+
+        <div id="gebaeudeCDetails" class="details">
+            <h2>Gebäude C</h2>
+            <p>Details zu Gebäude C...</p>
+        </div>
+
+        <div id="gebaeudeDDetails" class="details">
+            <h2>Gebäude D</h2>
+            <p>Details zu Gebäude D...</p>
+        </div>
+
+        <div id="gebaeudeEDetails" class="details">
+            <h2>Gebäude E</h2>
+            <p>Details zu Gebäude E...</p>
+        </div
+
+
+    <div id="gebaeudeFDetails" class="details">
+        <h2>Gebäude F</h2>
+        <p>Details zu Gebäude F...</p>
+    </div>
+</main>
+
+<!-- JavaScript für die Interaktivität -->
+<script>
+    function toggleDetails(id) {
+        var details = document.getElementById(id);
+        if (details.style.display === 'none') {
+            // Schließe alle anderen Details
+            var allDetails = document.getElementsByClassName('details');
+            for (var i = 0; i < allDetails.length; i++) {
+                allDetails[i].style.display = 'none';
+            }
+            // Zeige die angeklickten Details
+            details.style.display = 'block';
+        } else {
+            details.style.display = 'none';
+        }
+    }
+</script>
+
+<!-- Fußzeile -->
+<footer>
+    <p>Kontaktinformationen und Links</p>
+</footer>
+
+
     </div>
     <div id="mensa-content" class="tab-content">
         <h2>Mensa</h2>
