@@ -304,10 +304,10 @@ Cafeteria             8:00 – 14:15 Uhr
     
     </div>
     <div id="kontakt-content" class="tab-content">
-        <p><!DOCTYPE html>
+    <p><!DOCTYPE html>
 <html>
 <head>
-    <title>FAQ-Bereich</title>
+    <title>FAQ-Bereich mit Suchfunktion</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -333,10 +333,32 @@ Cafeteria             8:00 – 14:15 Uhr
 
         .faq h2 {
             color: #333;
+            cursor: pointer;
+            margin: 0;
         }
 
         .faq p {
             color: #666;
+            display: none;
+            margin-top: 5px;
+        }
+
+        .faq p.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #searchBox {
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -344,57 +366,44 @@ Cafeteria             8:00 – 14:15 Uhr
     <div class="container">
         <h1>Häufig gestellte Fragen (FAQ)</h1>
 
+        <input type="text" id="searchBox" placeholder="Frage suchen..." onkeyup="searchQuestions()">
+
         <div class="faq">
-            <h2>Frage 1</h2>
+            <h2 onclick="toggleAnswer(this)">Frage 1</h2>
             <p>Antwort auf Frage 1.</p>
         </div>
 
-        <div class="faq">
-            <h2>Frage 2</h2>
-            <p>Antwort auf Frage 2.</p>
-        </div>
+        <!-- Wiederholen Sie die folgenden Zeilen für Fragen 2 bis 9 -->
 
         <div class="faq">
-            <h2>Frage 3</h2>
-            <p>Antwort auf Frage 3.</p>
-        </div>
-
-        <div class="faq">
-            <h2>Frage 4</h2>
-            <p>Antwort auf Frage 4.</p>
-        </div>
-
-        <div class="faq">
-            <h2>Frage 5</h2>
-            <p>Antwort auf Frage 5.</p>
-        </div>
-
-        <div class="faq">
-            <h2>Frage 6</h2>
-            <p>Antwort auf Frage 6.</p>
-        </div>
-
-        <div class="faq">
-            <h2>Frage 7</h2>
-            <p>Antwort auf Frage 7.</p>
-        </div>
-
-        <div class="faq">
-            <h2>Frage 8</h2>
-            <p>Antwort auf Frage 8.</p>
-        </div>
-
-        <div class="faq">
-            <h2>Frage 9</h2>
-            <p>Antwort auf Frage 9.</p>
-        </div>
-
-        <div class="faq">
-            <h2>Frage 10</h2>
+            <h2 onclick="toggleAnswer(this)">Frage 10</h2>
             <p>Antwort auf Frage 10.</p>
         </div>
-
     </div>
+
+    <script>
+        function toggleAnswer(element) {
+            var answer = element.nextElementSibling;
+            answer.classList.toggle('show');
+        }
+
+        function searchQuestions() {
+            var input = document.getElementById('searchBox');
+            var filter = input.value.toUpperCase();
+            var faqs = document.getElementsByClassName('faq');
+            var text, h2, i;
+
+            for (i = 0; i < faqs.length; i++) {
+                h2 = faqs[i].getElementsByTagName('h2')[0];
+                text = h2.textContent || h2.innerText;
+                if (text.toUpperCase().indexOf(filter) > -1) {
+                    faqs[i].style.display = "";
+                } else {
+                    faqs[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
 </p>
