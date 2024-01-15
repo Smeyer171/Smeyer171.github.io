@@ -235,23 +235,23 @@
 
         <div id="gebaeudeEDetails" class="details">
             <h2>Gebäude E</h2>
-            <p>Details zu Gebäude E: In Gebäude E finden Sie das IT Labor und einen weiteren Kopierer.</p>
+            <p>Details zu Gebäude E: In Gebäude E finden Sie das IT-Labor und einen weiteren Kopierer.</p>
         </div
 
 
 </main>
 
-<!-- JavaScript für die Interaktivität -->
+
 <script>
     function toggleDetails(id) {
         var details = document.getElementById(id);
         if (details.style.display === 'none') {
-            // Schließe alle anderen Details
+           
             var allDetails = document.getElementsByClassName('details');
             for (var i = 0; i < allDetails.length; i++) {
                 allDetails[i].style.display = 'none';
             }
-            // Zeige die angeklickten Details
+            
             details.style.display = 'block';
         } else {
             details.style.display = 'none';
@@ -369,50 +369,36 @@ Cafeteria             8:00 – 14:15 Uhr
         <input type="text" id="searchBox" placeholder="Frage suchen..." onkeyup="searchQuestions()">
 
         <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 1</h2>
-            <p>Antwort auf Frage 1.</p>
+            <h2 onclick="toggleAnswer(this)">Wo befindet sich die Bibliothek?</h2>
+            <p>Sie finden die Bibliothek im Kellergeschoss des Gebäudes A.</p>
         </div>
 
         <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 2</h2>
-            <p>Antwort auf Frage 2.</p>
+            <h2 onclick="toggleAnswer(this)">Wo befinden sich die Toiletten?</h2>
+            <p>In Gebäude A-D befinden sich Toiletten.</p>
         </div>
 
         <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 3</h2>
-            <p>Antwort auf Frage 3.</p>
+            <h2 onclick="toggleAnswer(this)">Wo befindet sich die Fachschaft?</h2>
+            <p>Die Fachschaft befindet sich im Kellergschoss des Gebäudes A.</p>
         </div>
 
         <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 5</h2>
-            <p>Antwort auf Frage 5.</p>
+            <h2 onclick="toggleAnswer(this)">Wo befindet sich der Info-Corner?</h2>
+            <p>Den Info-Corner finden Sie schnellstmöglich über den Eingang Ost, in Gebäude B.</p>
         </div>
 
         <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 6</h2>
-            <p>Antwort auf Frage 6.</p>
+            <h2 onclick="toggleAnswer(this)">Wo befindet sich der Getränkeautomat?</h2>
+            <p>Der Getränkeautomat ist im kellergeschoss des Gebäudes C.</p>
         </div>
 
         <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 7</h2>
-            <p>Antwort auf Frage 7.</p>
+            <h2 onclick="toggleAnswer(this)">Darf ich überall Rauchen?</h2>
+            <p>Vor dem Eingang Ost und im Innenhof befinden sich gekennzeichnete Raucherbereiche, auschließlich dort ist das Rauchen erlaubt.</p>
         </div>
 
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 8</h2>
-            <p>Antwort auf Frage 8.</p>
-        </div>
-
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 9</h2>
-            <p>Antwort auf Frage 9.</p>
-        </div>
-
-      
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 10</h2>
-            <p>Antwort auf Frage 10.</p>
-        </div>
+        
     </div>
 
     <script>
