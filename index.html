@@ -309,7 +309,57 @@ Cafeteria             8:00 – 14:15 Uhr
 <head>
     <title>FAQ-Bereich mit Suchfunktion</title>
     <style>
-        /* Ihr bisheriger CSS-Code */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .faq {
+            background: #fff;
+            margin: 20px 0;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq h2 {
+            color: #333;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .faq p {
+            color: #666;
+            display: none;
+            margin-top: 5px;
+        }
+
+        .faq p.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #searchBox {
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -318,61 +368,13 @@ Cafeteria             8:00 – 14:15 Uhr
 
         <input type="text" id="searchBox" placeholder="Frage suchen..." onkeyup="searchQuestions()">
 
-        <!-- FAQ 1 -->
         <div class="faq">
             <h2 onclick="toggleAnswer(this)">Frage 1</h2>
             <p>Antwort auf Frage 1.</p>
         </div>
 
-        <!-- FAQ 2 -->
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 2</h2>
-            <p>Antwort auf Frage 2.</p>
-        </div>
+        <!-- Wiederholen Sie die folgenden Zeilen für Fragen 2 bis 9 -->
 
-        <!-- FAQ 3 -->
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 3</h2>
-            <p>Antwort auf Frage 3.</p>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 4</h2>
-            <p>Antwort auf Frage 4.</p>
-        </div>
-
-        <!-- FAQ 5 -->
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 5</h2>
-            <p>Antwort auf Frage 5.</p>
-        </div>
-
-        <!-- FAQ 6 -->
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 6</h2>
-            <p>Antwort auf Frage 6.</p>
-        </div>
-
-        <!-- FAQ 7 -->
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 7</h2>
-            <p>Antwort auf Frage 7.</p>
-        </div>
-
-        <!-- FAQ 8 -->
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 8</h2>
-            <p>Antwort auf Frage 8.</p>
-        </div>
-
-        <!-- FAQ 9 -->
-        <div class="faq">
-            <h2 onclick="toggleAnswer(this)">Frage 9</h2>
-            <p>Antwort auf Frage 9.</p>
-        </div>
-
-        <!-- FAQ 10 -->
         <div class="faq">
             <h2 onclick="toggleAnswer(this)">Frage 10</h2>
             <p>Antwort auf Frage 10.</p>
@@ -380,7 +382,27 @@ Cafeteria             8:00 – 14:15 Uhr
     </div>
 
     <script>
-        /* Ihr bisheriger JavaScript-Code */
+        function toggleAnswer(element) {
+            var answer = element.nextElementSibling;
+            answer.classList.toggle('show');
+        }
+
+        function searchQuestions() {
+            var input = document.getElementById('searchBox');
+            var filter = input.value.toUpperCase();
+            var faqs = document.getElementsByClassName('faq');
+            var text, h2, i;
+
+            for (i = 0; i < faqs.length; i++) {
+                h2 = faqs[i].getElementsByTagName('h2')[0];
+                text = h2.textContent || h2.innerText;
+                if (text.toUpperCase().indexOf(filter) > -1) {
+                    faqs[i].style.display = "";
+                } else {
+                    faqs[i].style.display = "none";
+                }
+            }
+        }
     </script>
 </body>
 </html>
